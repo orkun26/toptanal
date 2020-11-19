@@ -1,41 +1,51 @@
 <template>
-  <div class="container">
-    <h4>Benzer Ürünler</h4>
-    <hr />
-    <div class="scroll-olacak">
-      <span class="ok sag">
-        <f-icon @click="kaydir(true)" icon="arrow-right"></f-icon>
-      </span>
-      <span class="ok sol">
-        <f-icon @click="kaydir(false)" icon="arrow-left"></f-icon>
-      </span>
+  <div class="scroll-olacak">
+    <span class="ok sag">
+      <f-icon @click="kaydir(true)" icon="arrow-right"></f-icon>
+    </span>
+    <span class="ok sol">
+      <f-icon @click="kaydir(false)" icon="arrow-left"></f-icon>
+    </span>
+    <div
+      ref="urunler"
+      style="position: relative"
+      :style="{ left: left + 'rem' }"
+      class="urunler d-flex"
+    >
       <div
-        ref="urunler"
-        style="position: relative"
-        :style="{ left: left + 'rem' }"
-        class="urunler d-flex"
+        v-for="(urun, index) in urunler"
+        :key="index"
+        :style="{ width: ikincigorunum ? '14rem' : '' }"
+        class="card urun"
       >
-        <div v-for="(urun, index) in urunler" :key="index" class="card urun">
-          <img class="card-img-top" :src="urun.resim" alt="Card image cap" />
-          <div class="card-body text-center">
-            <h5 class="card-title">{{ urun.baslik }}</h5>
-            <div
-              class="d-flex flex-row justify-content-center align-items-center"
-            >
-              <div class="bg-danger text-light rounded p-2">
-                {{ urun.indirim }}%
-              </div>
-              <div class="d-flex flex-column">
-                <span class="text-secondary"
-                  ><del> {{ urun.eskiFiyat }}TL </del></span
-                >
-                <span> {{ urun.fiyat }}TL</span>
-              </div>
+        <img class="card-img-top" :src="urun.resim" alt="Card image cap" />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ urun.baslik }}</h5>
+          <div
+            class="d-flex flex-row justify-content-center align-items-center"
+          >
+            <div v-if="!ikincigorunum" class="bg-danger text-light rounded p-2">
+              {{ urun.indirim }}%
             </div>
-            <a href="#" class="mt-3 w-75 btn btn-outline-secondary rounded-btn"
-              ><f-icon icon="shopping-cart" /> Sepete Ekle</a
-            >
+
+            <div class="d-flex flex-column">
+              <div>
+                <span class="star"> <f-icon icon="star"></f-icon> </span
+                ><span class="star"><f-icon icon="star"></f-icon></span
+                ><span class="star"><f-icon icon="star"></f-icon></span
+                ><span class="star"><f-icon icon="star"></f-icon></span
+                ><span class="star"><f-icon icon="star"></f-icon></span>
+              </div>
+              <span v-if="!ikincigorunum" class="text-secondary"
+                ><del> {{ urun.eskiFiyat }}TL </del></span
+              >
+
+              <span> {{ urun.fiyat }}TL</span>
+            </div>
           </div>
+          <a href="#" class="mt-3 w-75 btn btn-outline-secondary rounded-btn"
+            ><f-icon icon="shopping-cart" /> Sepete Ekle</a
+          >
         </div>
       </div>
     </div>
@@ -44,6 +54,11 @@
 
 <script>
 export default {
+  props: {
+    ikincigorunum: {
+      default: false,
+    },
+  },
   data() {
     return {
       left: 0,
@@ -137,6 +152,10 @@ export default {
 </script>
 
 <style>
+.star {
+  font-size: 12px;
+  color: lightgrey;
+}
 .rounded-btn {
   border-radius: 70px !important;
 }

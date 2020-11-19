@@ -1,7 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import "./assets/css/style.css";
 import {
+  faStar,
   faSearch,
   faUser,
   faSortDown,
@@ -16,6 +18,7 @@ library.add(faSortDown);
 library.add(faShoppingCart);
 library.add(faArrowRight);
 library.add(faArrowLeft);
+library.add(faStar);
 Vue.component("f-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;

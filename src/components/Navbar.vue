@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div class="navbar-container">
       <img class="logo" :src="logo" />
       <div class="search-box">
@@ -17,7 +17,15 @@
         <f-icon icon="shopping-cart"></f-icon>
       </div>
     </div>
-    <hr />
+    <div class="navbar-bottom">
+      <div class="container">
+        <div class="d-flex navbar-elements">
+          <div v-for="element in bottomMenuElements" :key="element">
+            <span>{{ element }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,6 +35,14 @@ export default {
   data() {
     return {
       logo, //logo : logo
+      bottomMenuElements: [
+        "11. Yıla Özel",
+        "Elektronik",
+        "Ev & Ofis",
+        "Kişisel Bakım",
+        "Otomativ & Yapı Market",
+        "Spor & Outdoor & Hobi",
+      ],
     };
   },
 };
@@ -38,11 +54,36 @@ hr {
   top: -20px;
   color: red;
 }
-.navbar-container {
+.navbar-bottom {
+  background: #f2f2f2;
+}
+.navbar-bottom .navbar-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  cursor: pointer;
+}
+.navbar-bottom .navbar-elements div {
+  height: 50px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
+.navbar-bottom .navbar-elements div:hover {
+  color: #1f367b;
+  background: #fff !important;
+}
+.navbar-container {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .logo {
   width: 25%;
 }

@@ -1,41 +1,35 @@
 <template>
-  <div class="container">
-    <div
-      id="carouselExampleControls"
-      class="carousel slide"
-      data-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div
-          v-for="(foto, index) in fotolar"
-          :key="foto"
-          class="carousel-item"
-          :class="index == seciliFoto ? 'active' : ''"
-        >
-          <img :src="foto" class="d-block w-100" />
-        </div>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div
+        v-for="(foto, index) in fotolar"
+        :key="foto"
+        class="carousel-item"
+        :class="index == seciliFoto ? 'active' : ''"
+      >
+        <img :src="foto" class="d-block w-100" />
       </div>
-      <a
-        @click="slaytDegis(-1)"
-        class="carousel-control-prev"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        @click="slaytDegis(1)"
-        class="carousel-control-next"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+    <a
+      @click="slaytDegis(-1)"
+      class="carousel-control-prev"
+      href="#carouselExampleControls"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      @click="slaytDegis(1)"
+      class="carousel-control-next"
+      href="#carouselExampleControls"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </template>
 
