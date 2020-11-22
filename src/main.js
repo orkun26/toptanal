@@ -26,3 +26,22 @@ Vue.config.productionTip = false;
 new Vue({
   render: (h) => h(App),
 }).$mount("#app");
+
+// try {
+//   //hata çıkarabilecek bir kod var
+// } catch (error) {
+//   console.log(error);
+// }
+/*
+data -> component değişkenleri
+methods -> comp fonksiyonları
+components -> comp componentleri
+computeds -> işlenmiş veriler
+props -> üst komponentden gelen veriler
+mixin -> başlangıç araçların
+watch -> bi değişkenin değişimini yakalamak
+beforeMount -> f() component ekrana monte edilmeden çalışır
+mounted -> f() comp monte edilince
+beforeUpdate -> f() comp güncellenmeden önce
+updated -> f() comp güncellendikten sonra
+*/

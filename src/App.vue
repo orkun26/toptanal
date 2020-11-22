@@ -60,6 +60,9 @@
         </div>
       </div>
     </section>
+    <section style="background: black">
+      <Footer />
+    </section>
     <section>
       <div class="container-fluid">
         <div class="d-flex justify-content-center">
@@ -95,6 +98,7 @@ import BenzerUrunler from "./components/BenzerUrunler.vue";
 import Liste from "./components/Liste.vue";
 import Slide from "./components/Slide.vue";
 import IcMenu from "./components/IcMenu.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   data() {
@@ -141,6 +145,7 @@ export default {
     Liste,
     Slide,
     IcMenu,
+    Footer,
   },
 };
 </script>
